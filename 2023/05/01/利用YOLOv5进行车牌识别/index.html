@@ -3,7 +3,7 @@
 <html lang="zh-CN">
     <head>
         <meta charset="UTF-8" />
-        <title>铎の消遣</title>
+        <title>利用YOLOv5进行车牌识别 | 铎の消遣</title>
         <meta name="author" content="Yuduo Wang" />
         <meta name="description" content="中山大学数学学院(珠海)" />
         <meta name="keywords" content="自由" />
@@ -32,7 +32,9 @@
 
 
 
-<script src="/js/lib/home.js"></script>
+
+
+
 
 <link rel="stylesheet" href="/css/main.css" />
 
@@ -141,35 +143,17 @@
 
             <transition name="into">
             <div id="main" v-show="!loading">
-                <div id="home-head">
-    <div
-        id="home-background"
-        ref="homeBackground"
-        data-images="/images/background.jpg"
-    ></div>
-    <div id="home-info" @click="homeClick">
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="info">
-            <div class="wrap">
-                <h1>铎の消遣</h1>
-                <h3>制作网页初体验</h3>
-                <h5>中山大学数学学院(珠海)</h5>
-            </div>
-        </span>
+                <div class="article">
+    <div>
+        <h1>利用YOLOv5进行车牌识别</h1>
     </div>
-</div>
-<div id="home-posts-wrap"  ref="homePostsWrap">
-    <div id="home-posts">
-        
-
-<div class="post">
-    <a href="/2023/05/01/%E5%88%A9%E7%94%A8YOLOv5%E8%BF%9B%E8%A1%8C%E8%BD%A6%E7%89%8C%E8%AF%86%E5%88%AB/">
-        <h2 class="post-title">利用YOLOv5进行车牌识别</h2>
-    </a>
-    <div class="category-and-date">
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/5/1
+        </span>
         
         <span class="category">
             <a href="/categories/yolov5/">
@@ -180,19 +164,28 @@
             </a>
         </span>
         
-        <span class="date">
+        
+        <span class="tags">
             <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
+                <i class="fa-solid fa-tags fa-fw"></i>
             </span>
-            2023/5/1
+            
+            <span class="tag">
+                
+                <a href="/tags/Hexo/" style="color: #ff7d73">Hexo</a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/yolov5/" style="color: #00a596">yolov5</a>
+            </span>
+            
         </span>
         
-        
     </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <h1 id="一、项目的介绍"><a href="#一、项目的介绍" class="headerlink" title="一、项目的介绍"></a>一、项目的介绍</h1><p>我通过使用yolov5对数百张汽车照片进行训练，成功实现了对汽车车牌的识别。这个项目的意义在于，汽车车牌识别技术已经广泛应用于交通管理、治安监控等领域，可以提高交通安全和社会治理的效率。例如，在交通管理方面，可以利用这种技术实现车辆违法行为的自动监控和处理，减少人工干预和误判的风险；在治安监控方面，可以利用这种技术实现对车辆的实时追踪和记录，为案件破案提供有力的证据。此外，这种技术还可以应用于车辆租赁、停车场管理等场景，提高服务质量和效率。综上所述，我这个项目的成功实现，不仅体现了yolov5算法的强大性能，也为汽车车牌识别技术的应用提供了新的思路和方法。</p>
+    
+    <div class="content" v-pre>
+        <h1 id="一、项目的介绍"><a href="#一、项目的介绍" class="headerlink" title="一、项目的介绍"></a>一、项目的介绍</h1><p>我通过使用yolov5对数百张汽车照片进行训练，成功实现了对汽车车牌的识别。这个项目的意义在于，汽车车牌识别技术已经广泛应用于交通管理、治安监控等领域，可以提高交通安全和社会治理的效率。例如，在交通管理方面，可以利用这种技术实现车辆违法行为的自动监控和处理，减少人工干预和误判的风险；在治安监控方面，可以利用这种技术实现对车辆的实时追踪和记录，为案件破案提供有力的证据。此外，这种技术还可以应用于车辆租赁、停车场管理等场景，提高服务质量和效率。综上所述，我这个项目的成功实现，不仅体现了yolov5算法的强大性能，也为汽车车牌识别技术的应用提供了新的思路和方法。</p>
 
 <h1 id="二、数据采集与处理的详细过程"><a href="#二、数据采集与处理的详细过程" class="headerlink" title="二、数据采集与处理的详细过程"></a>二、数据采集与处理的详细过程</h1><h2 id="数据采集："><a href="#数据采集：" class="headerlink" title="数据采集："></a>数据采集：</h2><p>在实际生活中，我们会看到各种各样的车牌，例如一车多牌，大型车辆用的黄色牌，新能源汽车用的绿色牌，以及特殊地区的其他色车牌（例如澳门的黑色车牌），要自己拍摄所有种类的车牌是不现实的，所以，我选择从网上找带有车牌的汽车的图片，包括白、黄、黑、绿、蓝等多种情况，还有一些特殊情况比如一车多牌，一张图里不止一张车牌，混色牌，也都找到了相应的例子。</p>
 
@@ -243,117 +236,13 @@
 <p>Hexo, yolov5, 王宇铎</p>
 </blockquote>
 
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/Hexo/" style="color: #ff7d73">
-                Hexo
-            </a>
-        </span>
-        
-        <span class="tag">
-            
-            <a href="/tags/yolov5/" style="color: #03a9f4">
-                yolov5
-            </a>
-        </span>
-        
-    </div>
-    <a href="/2023/05/01/%E5%88%A9%E7%94%A8YOLOv5%E8%BF%9B%E8%A1%8C%E8%BD%A6%E7%89%8C%E8%AF%86%E5%88%AB/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2023/04/08/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%EF%BC%9Awyd%E6%B7%B1%E5%A4%9C%E5%AD%A6%E4%B9%A0/">
-        <h2 class="post-title">第一篇文章：wyd深夜学习</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/4/8
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <h4 id="2023年4月8日-2点05-学着自己整个网站"><a href="#2023年4月8日-2点05-学着自己整个网站" class="headerlink" title="2023年4月8日 2点05 学着自己整个网站"></a>2023年4月8日 2点05 学着自己整个网站</h4>
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2023/04/08/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%EF%BC%9Awyd%E6%B7%B1%E5%A4%9C%E5%AD%A6%E4%B9%A0/" class="go-post">阅读全文</a>
-</div>
-
-
-        <div class="page-current">
-    <div class="prev">
-        
-    </div>
-    <div class="page-index">
-        
-        <span class="current">1</span>
-        
-    </div>
-    <div class="next">
-        
-    </div>
-</div>
-
     </div>
     
-    <div id="home-card">
-        <div id="card-div">
-    <div class="card-style">
-        <div class="avatar">
-            <img src="/images/wyd_head.png" alt="avatar" />
-        </div>
-        <div class="name">Yuduo Wang</div>
-        <div class="description">
-            <p>姓名：王宇铎<br>性别：男<br>学校中山大学 数学学院(珠海) 信息与计算科学 大三<br>PWC LEAPer</p>
-
-        </div>
-        
-        
-        <div class="friend-links">
-            
-            <div class="friend-link">
-                <a target="_blank" rel="noopener" href="https://www.baidu.com/">Baidu</a>
-            </div>
-            
-            <div class="friend-link">
-                <a target="_blank" rel="noopener" href="https://www.bilibili.com/">Bilibili</a>
-            </div>
-            
-            <div class="friend-link">
-                <a target="_blank" rel="noopener" href="https://portal.sysu.edu.cn/newClient/#/login">Sun-Yet-sen</a>
-            </div>
-            
-            <div class="friend-link">
-                <a target="_blank" rel="noopener" href="https://argvchs.netlify.app">Argvchs</a>
-            </div>
-            
-        </div>
-        
-    </div>
-</div>
-
-    </div>
+    
+    
+    
+    
+    
     
 </div>
 
@@ -386,6 +275,12 @@
             
         </div>
         <script src="/js/main.js"></script>
+        
+        
+
+
+
+
         
     </body>
 </html>
